@@ -156,3 +156,7 @@ table.df caption { text-align: left; color: var(--muted); padding-bottom: 4px; }
 .btn--secondary { background: transparent; color: var(--accent); }
 
 h4 { font-size: 0.95rem; margin: 1.4em 0 0.4em; }
+
+/* Step 4: plots */
+.plot { width: 100%; min-height: 320px; margin: 8px 0 4px; }
+.plot-actions { margin: 0 0 16px; }

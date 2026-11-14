@@ -4,9 +4,10 @@
 import { loadAnswers } from '../model/answers.js';
 import { readCsv, toHandoutColumns, G } from '../model/csv.js';
 import { addAccMag, clean, samplingRate, CLEANING } from '../model/cleaning.js';
-import { shape, dtypes, head, describe, toCsv } from '../model/frame.js';
+import { shape, dtypes, head, describe, toCsv, mean } from '../model/frame.js';
 import { descriptiveTable } from '../model/stats.js';
 import { iqrBounds, outlierIndices, clusterOutliers, CLUSTER_GAP_S } from '../model/anomalies.js';
+import { welch, dominantPeak, peakNear, NPERSEG } from '../model/spectral.js';
 
 export const RAW_DATA_URL = 'data/sensor_raw.csv';
 
@@ -22,6 +23,7 @@ export class LabViewModel {
       dataSource: null,        // e.g. 'data/sensor_raw.csv' or the uploaded file name
       step2: null,             // results for the Step 2 view
       step3: null,             // results for the Step 3 view
+      step4: null,             // plot data for the Step 4 view
     };
     this.cleanFrame = null;    // df_clean, used by later steps
     this.outlierIdx = [];      // row indices of the IQR outliers in df_clean
@@ -106,6 +108,11 @@ export class LabViewModel {
     const outMags = idx.map((i) => c.data.acc_mag[i]);
     const clusters = clusterOutliers(outTimes, outMags, CLUSTER_GAP_S);
 
+    // Step 4 Plot 3: Welch PSD of acc_mag and cadence
+    const psd = welch(c.data.acc_mag, sampling.fs, NPERSEG);
+    const peak = dominantPeak(psd.f, psd.P);
+    const stride = peakNear(psd.f, psd.P, peak.f / 2);
+
     this.setState({
       dataStatus: 'ready',
       dataSource: source,
@@ -127,6 +134,19 @@ export class LabViewModel {
         outlierHead: idx.slice(0, 10).map((i) => [i, c.data.time[i], c.data.acc_mag[i]]),
         clusters,
         gap: CLUSTER_GAP_S,
+      },
+      step4: {
+        time: c.data.time,
+        accMag: c.data.acc_mag,
+        ax: c.data.ax,
+        ay: c.data.ay,
+        az: c.data.az,
+        mean: mean(c.data.acc_mag),
+        outlierTimes: outTimes,
+        psd: { f: psd.f, P: psd.P, resolution: psd.resolution, nSeg: psd.nSeg, nperseg: NPERSEG },
+        fs: sampling.fs,
+        peak: { ...peak, cadence: peak.f * 60 },
+        stride,
       },
     });
   }

@@ -193,7 +193,7 @@ Answer:
 **4.3 Plot 3: Cadence via PSD (Welch)**
 Include what the dominant frequency peak represents, and the cadence in steps/min.
 
-Answer:
+Answer: Welch PSD of `acc_mag` with nperseg = 1024 (10.3 s segments, 58 segments, 0.097 Hz resolution). Dominant peak: **2.73 Hz = 163.6 steps/min**. Second peak: 1.36 Hz (half the dominant frequency). Smaller peaks: about 4.1 Hz and 5.45 Hz.
 
 
 ---
