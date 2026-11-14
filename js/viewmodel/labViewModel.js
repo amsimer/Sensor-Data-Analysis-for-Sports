@@ -5,6 +5,8 @@ import { loadAnswers } from '../model/answers.js';
 import { readCsv, toHandoutColumns, G } from '../model/csv.js';
 import { addAccMag, clean, samplingRate, CLEANING } from '../model/cleaning.js';
 import { shape, dtypes, head, describe, toCsv } from '../model/frame.js';
+import { descriptiveTable } from '../model/stats.js';
+import { iqrBounds, outlierIndices, clusterOutliers, CLUSTER_GAP_S } from '../model/anomalies.js';
 
 export const RAW_DATA_URL = 'data/sensor_raw.csv';
 
@@ -19,8 +21,10 @@ export class LabViewModel {
       dataError: null,
       dataSource: null,        // e.g. 'data/sensor_raw.csv' or the uploaded file name
       step2: null,             // results for the Step 2 view
+      step3: null,             // results for the Step 3 view
     };
     this.cleanFrame = null;    // df_clean, used by later steps
+    this.outlierIdx = [];      // row indices of the IQR outliers in df_clean
     this.listeners = new Set();
   }
 
@@ -88,6 +92,19 @@ export class LabViewModel {
     // 2.3 Artefacts and cleaning
     const result = clean(df);
     this.cleanFrame = result.clean;
+    const sampling = samplingRate(result.clean);
+
+    // Step 3.1 Descriptive statistics
+    const c = result.clean;
+    const stats = descriptiveTable(c, sampling);
+
+    // Step 3.2 IQR anomaly detection and clusters
+    const bounds = iqrBounds(c.data.acc_mag);
+    const idx = outlierIndices(c.data.acc_mag, bounds);
+    this.outlierIdx = idx;
+    const outTimes = idx.map((i) => c.data.time[i]);
+    const outMags = idx.map((i) => c.data.acc_mag[i]);
+    const clusters = clusterOutliers(outTimes, outMags, CLUSTER_GAP_S);
 
     this.setState({
       dataStatus: 'ready',
@@ -97,7 +114,19 @@ export class LabViewModel {
         mappedHead: { columns: df.columns, rows: head(df, 10) },
         g: G,
         cleaning: { ...result, settings: CLEANING, clean: undefined },
-        sampling: samplingRate(result.clean),
+        sampling,
+      },
+      step3: {
+        stats,
+        sampling,
+        bounds,
+        outlierCount: idx.length,
+        outlierPct: (100 * idx.length) / c.data.time.length,
+        lowCount: outMags.filter((v) => v < bounds.lower).length,
+        highCount: outMags.filter((v) => v > bounds.upper).length,
+        outlierHead: idx.slice(0, 10).map((i) => [i, c.data.time[i], c.data.acc_mag[i]]),
+        clusters,
+        gap: CLUSTER_GAP_S,
       },
     });
   }

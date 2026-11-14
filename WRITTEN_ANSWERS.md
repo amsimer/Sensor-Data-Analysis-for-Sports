@@ -65,52 +65,112 @@ Answer: The Sensor Logger *Accelerometer Uncalibrated* export has 5 columns: `ti
 
 ## Step 3 — Statistics and anomalies
 
-**3.1 Is 50 Hz sufficient for your activity?** Comment on it using your effective sampling rate and Nyquist frequency. (Human gait cycles occur at ~1–3 Hz; jump landings contain frequencies up to ~15 Hz.)
+**3.1 Is the sampling rate (100 Hz) sufficient for your activity?** Comment on it using your effective sampling rate and Nyquist frequency. (Human gait cycles occur at ~1–3 Hz; jump landings contain frequencies up to ~15 Hz.)
 
 Answer:
 
 
 **3.2 Anomaly clusters** *(assessed: each cluster must be explained physically, not just labelled "outlier")*
-For **each cluster** of outliers, answer the three questions. Copy the block if you have more clusters.
+Outliers are grouped into clusters with a 5 s gap rule (a new cluster starts when there is no outlier for more than 5 s), which gives 7 clusters. Answer the three questions for each one.
+Keep the question lines (`**C1.1 …**`) unchanged so the page can find your answers.
 
 ### Cluster 1
-1. When did it occur (timestamp)?
 
-   Answer:
+**C1.1 When did it occur (timestamp)?**
 
-2. What physical event likely caused it?
+Answer: 4.27 s – 43.40 s (138 outlier samples, peak acc_mag 36.26 m/s²).
 
-   Answer:
+**C1.2 What physical event likely caused it?**
 
-3. Should it be excluded from further analysis, or is it meaningful signal?
+Answer:
 
-   Answer:
+**C1.3 Should it be excluded from further analysis, or is it meaningful signal?**
+
+Answer:
 
 ### Cluster 2
-1. When did it occur (timestamp)?
 
-   Answer:
+**C2.1 When did it occur (timestamp)?**
 
-2. What physical event likely caused it?
+Answer: 52.92 s – 70.63 s (50 outlier samples, peak acc_mag 37.38 m/s²).
 
-   Answer:
+**C2.2 What physical event likely caused it?**
 
-3. Should it be excluded from further analysis, or is it meaningful signal?
+Answer:
 
-   Answer:
+**C2.3 Should it be excluded from further analysis, or is it meaningful signal?**
+
+Answer:
 
 ### Cluster 3
-1. When did it occur (timestamp)?
 
-   Answer:
+**C3.1 When did it occur (timestamp)?**
 
-2. What physical event likely caused it?
+Answer: 77.82 s – 100.64 s (71 outlier samples, peak acc_mag 49.70 m/s²).
 
-   Answer:
+**C3.2 What physical event likely caused it?**
 
-3. Should it be excluded from further analysis, or is it meaningful signal?
+Answer:
 
-   Answer:
+**C3.3 Should it be excluded from further analysis, or is it meaningful signal?**
+
+Answer:
+
+### Cluster 4
+
+**C4.1 When did it occur (timestamp)?**
+
+Answer: 105.72 s – 110.86 s (36 outlier samples, peak acc_mag 50.54 m/s²).
+
+**C4.2 What physical event likely caused it?**
+
+Answer:
+
+**C4.3 Should it be excluded from further analysis, or is it meaningful signal?**
+
+Answer:
+
+### Cluster 5
+
+**C5.1 When did it occur (timestamp)?**
+
+Answer: 116.96 s – 117.43 s (10 outlier samples, peak acc_mag 34.42 m/s²).
+
+**C5.2 What physical event likely caused it?**
+
+Answer:
+
+**C5.3 Should it be excluded from further analysis, or is it meaningful signal?**
+
+Answer:
+
+### Cluster 6
+
+**C6.1 When did it occur (timestamp)?**
+
+Answer: 125.39 s – 256.51 s (490 outlier samples, peak acc_mag 52.72 m/s²).
+
+**C6.2 What physical event likely caused it?**
+
+Answer:
+
+**C6.3 Should it be excluded from further analysis, or is it meaningful signal?**
+
+Answer:
+
+### Cluster 7
+
+**C7.1 When did it occur (timestamp)?**
+
+Answer: 262.63 s – 310.28 s (213 outlier samples, peak acc_mag 48.76 m/s²).
+
+**C7.2 What physical event likely caused it?**
+
+Answer:
+
+**C7.3 Should it be excluded from further analysis, or is it meaningful signal?**
+
+Answer:
 
 
 ---

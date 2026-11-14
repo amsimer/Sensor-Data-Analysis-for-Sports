@@ -4,7 +4,7 @@
 // A question may have sub-items ("- Missing rows:" followed by "Answer:"),
 // which become `parts`.
 
-const QUESTION_LINE = /^\*\*(\d+\.\d+|Q\d+)\b/;   // **1.1 ...  /  **Q1.** ...
+const QUESTION_LINE = /^\*\*(\d+\.\d+|Q\d+|C\d+\.\d+)\b/;   // **1.1 ...  /  **Q1.** ...  /  **C1.2 ...
 const PART_LINE = /^-\s+(.+?):\s*$/;                 // - Missing rows:
 const ANSWER_LINE = /^\s*Answer:\s*(.*)$/;
 const SECTION_BREAK = /^(#{1,6}\s|---\s*$)/;          // headings and rules end an answer
