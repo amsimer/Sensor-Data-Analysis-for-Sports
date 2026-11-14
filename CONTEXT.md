@@ -25,6 +25,10 @@
 ## Open items (to confirm before or while building)
 - [ ] Peer-reviewed paper (Step 5.1) and commercial product (Step 5.2) to use.
 
+## Working rules
+- Claude fills in **objective** written answers (values, counts, columns, settings) in WRITTEN_ANSWERS.md as each step is built. **Reflective and interpretation answers are written by the student.**
+- Claude consults the student before editing any file.
+
 ## Contribution log
 Updated by Claude after every completed step. It records what was done and by whom (student vs Claude).
 
@@ -33,3 +37,4 @@ Updated by Claude after every completed step. It records what was done and by wh
 | 1 | 2026-11-14 | Setup | Created SPEC.md, STYLE.md, CONTEXT.md and the WRITTEN_ANSWERS.md template from the lab handout and the student's decisions | Claude (decisions: student) |
 | 2 | 2026-11-14 | Step 1 | Built the page shell (MVVM: answers model, lab ViewModel, Step 1 view) with placeholders for Steps 2–5; Step 1 shows the answers from WRITTEN_ANSWERS.md; added marked.js; filled Step 1 answers; updated SPEC/CONTEXT to 100 Hz | Claude (session facts and approvals: student) |
 | 3 | 2026-11-14 | Step 2 | Inspected both Sensor Logger exports; committed AccelerometerUncalibrated as data/sensor_raw.csv (byte-identical). Built Step 2: CSV loading (Papa Parse), pandas-like frame helpers (shape, dtypes, head, describe, quantile, std), column mapping and g→m/s², acc_mag, artefact checks, trimming, Kept N/M, sensor_clean.csv download, effective sampling rate, CSV upload. Answers parser supports sub-answers (2.2). Results checked against pandas (identical). App name corrected to Sensor Logger | Claude (file choice, g factor and cleaning decisions: student) |
+| 4 | 2026-11-14 | Step 2 answers | Filled the factual parts of WRITTEN_ANSWERS.md 2.1 and 2.2 (columns, units, check results, rows dropped/kept); renamed SensorLog → Sensor Logger in question 2.1. Reasons and interpretations left for the student | Claude (rule: student) |

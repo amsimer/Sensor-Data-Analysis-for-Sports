@@ -33,32 +33,32 @@ Answer: None.
 
 ## Step 2 — Loading and cleaning
 
-**2.1 Columns present:** which columns did the SensorLog export contain? Did you rename any? (Note the units: m/s² or g.)
+**2.1 Columns present:** which columns did the Sensor Logger export contain? Did you rename any? (Note the units: m/s² or g.)
 
-Answer:
+Answer: The Sensor Logger *Accelerometer Uncalibrated* export has 5 columns: `time` (timestamp in nanoseconds), `seconds_elapsed` (seconds since Record was pressed), `z`, `y` and `x` (acceleration in **g**, gravity included). In the analysis, `seconds_elapsed` is used as `time`, and `x`, `y`, `z` are renamed to `ax`, `ay`, `az` and converted to m/s² by multiplying by 9.80665. The raw file itself is not modified.
 
 
 **2.2 Cleaning decisions:** explain *each* cleaning decision (assessed: at least one cleaning step must be justified in prose). Cover what you checked and what you did about it:
 
 - Missing rows:
 
-  Answer:
+  Answer: Checked with `df.isnull().sum()`: 0 missing values in every column. No rows were dropped.
 
 - Timestamps out of order:
 
-  Answer:
+  Answer: Checked with `(df['time'].diff() < 0).sum()`: 0 timestamps out of order. No rows were dropped.
 
 - Sensor saturation (values beyond the sensor's physical range):
 
-  Answer:
+  Answer: 1,981 rows have at least one axis beyond ±19.6 m/s² (ax: 144, ay: 1,899, az: 14). The largest single-axis value is 4.90 g (48.0 m/s², on y). Each axis reaches its maximum and minimum only once, so there are no flat plateaus at a ceiling. These rows were kept.
 
 - Noise at the start and end of the recording (pressing Record/Stop, putting the phone in your pocket):
 
-  Answer:
+  Answer: Only the data from 4.0 s to 312.0 s was kept. 949 rows were dropped: 395 from the start (0.04–4.0 s) and 554 from the end (312.0–317.55 s). Result: kept 30,709 of 31,658 rows.
 
 - Any other step:
 
-  Answer:
+  Answer: None.
 
 
 ---
