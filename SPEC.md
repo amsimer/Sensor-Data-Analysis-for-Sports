@@ -37,10 +37,10 @@ Course ILOs addressed:
 | Sport | Jogging on a treadmill (indoor) |
 | Sensor app | SensorLog |
 | Sensors | Accelerometer only (ax, ay, az) |
-| Phone position | Trouser pocket. *Open: which side, and front or back pocket.* |
-| Target sampling rate | 50 Hz, or as close as the device allows |
+| Phone position | Right trouser pocket |
+| Sampling rate | 100 Hz, as reported by SensorLog (the handout asks for 50 Hz "or as close as your device allows") |
 | Minimum duration | 5 minutes |
-| Location, distance, duration, notable events | *Open: fill in after recording* |
+| Notable events | None |
 
 ## 4. Functional requirements (one page section per step)
 
@@ -63,7 +63,7 @@ Course ILOs addressed:
 ### Step 3 — Statistics and anomalies
 - 3.1 A descriptive statistics table for `acc_mag`: mean, standard deviation, max, min, duration (s), sample count, effective sampling rate (Hz).
 - Effective sampling rate is `fs = 1 / median(diff(time))`. Also show Nyquist = `fs/2`.
-- A comment on whether 50 Hz is enough (gait is ~1–3 Hz; jump landings reach up to ~15 Hz).
+- A comment on whether the sampling rate is enough. The handout asks about 50 Hz; this recording is 100 Hz (Nyquist 50 Hz). Gait is ~1–3 Hz; jump landings reach up to ~15 Hz.
 - 3.2 IQR outlier detection on `acc_mag`:
   - Q1/Q3 using pandas' default linear quantile method
   - bounds = Q1 − 1.5·IQR and Q3 + 1.5·IQR

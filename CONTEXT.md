@@ -15,14 +15,12 @@
 
 ## Project-specific choices
 - Activity: jogging on a treadmill (no GPS used).
-- App: SensorLog. Sensors: accelerometer only. Phone: trouser pocket.
+- App: SensorLog. Sensors: accelerometer only. Phone: right trouser pocket.
+- Recorded at **100 Hz** instead of the handout's 50 Hz (allowed: "or as close as your device allows"). Notable events: none.
 - Plot 3: cadence via Welch PSD.
 
 ## Open items (to confirm before or while building)
 - [ ] **SensorLog column names and units.** SensorLog may export acceleration in **g** rather than m/s², and use its own column and time names. Verify against the first real export before writing the column mapping and deciding whether to multiply by 9.81.
-- [ ] SensorLog's actual sampling rate setting (can it be set to 50 Hz on this phone?).
-- [ ] Pocket details: left or right, front or back.
-- [ ] Session details: duration, treadmill speed(s), notable events with timestamps.
 - [ ] Peer-reviewed paper (Step 5.1) and commercial product (Step 5.2) to use.
 
 ## Contribution log
@@ -30,3 +28,5 @@ Updated by Claude after every completed step. It records what was done and by wh
 
 | # | Date | Step | What was done | Contributor |
 |---|---|---|---|---|
+| 1 | 2026-11-14 | Setup | Created SPEC.md, STYLE.md, CONTEXT.md and the WRITTEN_ANSWERS.md template from the lab handout and the student's decisions | Claude (decisions: student) |
+| 2 | 2026-11-14 | Step 1 | Built the page shell (MVVM: answers model, lab ViewModel, Step 1 view) with placeholders for Steps 2–5; Step 1 shows the answers from WRITTEN_ANSWERS.md; added marked.js; filled Step 1 answers; updated SPEC/CONTEXT to 100 Hz | Claude (session facts and approvals: student) |

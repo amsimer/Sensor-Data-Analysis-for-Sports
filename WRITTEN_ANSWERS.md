@@ -11,22 +11,22 @@ These texts will be placed in the matching sections of the web page.
 
 **1.1 Sport and session:** what did you do, where, and for how long? (e.g. "8 km outdoor run, Djurgårdsparken, 42 min")
 
-Answer:
+Answer: Jogging on a treadmill.
 
 
 **1.2 Phone position:** pocket, armband or other? Which body part? (Left or right, front or back pocket?)
 
-Answer:
+Answer: Right trouser pocket.
 
 
 **1.3 Sampling rate** as reported by the app:
 
-Answer:
+Answer: 100 Hz.
 
 
 **1.4 Notable events** during the session (sprint, fall, break, equipment change, speed changes on the treadmill), with approximate timestamps:
 
-Answer:
+Answer: None.
 
 
 ---
