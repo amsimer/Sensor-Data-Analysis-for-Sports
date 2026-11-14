@@ -118,3 +118,39 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* Step 2: notebook-style output, tables, controls */
+.qa-part { margin: 10px 0 4px; font-size: 0.9rem; font-weight: 600; }
+
+.cell { margin: 12px 0; }
+.cell-code, .cell-out {
+  margin: 0;
+  padding: 8px 12px;
+  overflow-x: auto;
+  font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.cell-code { margin-top: 12px; background: var(--surface); border-radius: 4px 4px 0 0; color: var(--muted); }
+.cell-out { border: 1px solid var(--border); border-top: 0; border-radius: 0 0 4px 4px; }
+pre.cell-code:not(.cell .cell-code) { border-radius: 4px; }
+
+.table-wrap { max-width: 100%; overflow-x: auto; margin: 4px 0 16px; }
+table.df { border-collapse: collapse; font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+table.df th, table.df td { padding: 4px 10px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
+table.df thead th { border-bottom: 2px solid var(--border); }
+table.df td:first-child, table.df th:first-child { text-align: left; }
+table.df caption { text-align: left; color: var(--muted); padding-bottom: 4px; }
+
+.source { color: var(--muted); font-size: 0.9rem; margin: 0 0 8px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin-bottom: 8px; font-size: 0.9rem; }
+.controls input[type="file"] { max-width: 100%; }
+.btn {
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--bg);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.btn--secondary { background: transparent; color: var(--accent); }

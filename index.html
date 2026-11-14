@@ -4,15 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sensor Data Analysis for Sports</title>
-  <meta name="description" content="Lab A – Sensor Data Analysis for Sports (CM2023/HI1033 Mobile Sports Applications, HT26). Treadmill jogging, accelerometer data.">
+  <meta name="description" content="Lab A – Sensor Data Analysis for Sports (CM2023/HI1033 Mobile Sports Applications, HT26). Treadmill jogging, accelerometer data recorded with Sensor Logger.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <header class="page-header">
     <p class="eyebrow">CM2023/HI1033 Mobile Sports Applications · HT26</p>
     <h1>Lab A – Sensor Data Analysis for Sports</h1>
-    <p class="lede">Treadmill jogging · accelerometer data recorded with SensorLog</p>
+    <p class="lede">Treadmill jogging · accelerometer data recorded with Sensor Logger</p>
   </header>
 
   <nav class="toc" aria-label="Lab steps">
@@ -33,9 +34,11 @@
       </div>
     </section>
 
-    <section id="step-2" class="step step--pending">
+    <section id="step-2" class="step">
       <h2><span class="step-no">Step 2</span> Loading and cleaning</h2>
-      <p class="coming-soon">Coming in a later step.</p>
+      <div id="step-2-content">
+        <p class="status">Loading sensor data…</p>
+      </div>
     </section>
 
     <section id="step-3" class="step step--pending">
@@ -55,7 +58,7 @@
   </main>
 
   <footer class="page-footer">
-    <p>Written answers are loaded from <code>WRITTEN_ANSWERS.md</code>.</p>
+    <p>Sensor data: <code>data/sensor_raw.csv</code> (unmodified Sensor Logger export). Written answers: <code>WRITTEN_ANSWERS.md</code>.</p>
   </footer>
 </body>
 </html>

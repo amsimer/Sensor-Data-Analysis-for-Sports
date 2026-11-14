@@ -15,12 +15,14 @@
 
 ## Project-specific choices
 - Activity: jogging on a treadmill (no GPS used).
-- App: SensorLog. Sensors: accelerometer only. Phone: right trouser pocket.
+- App: **Sensor Logger** (not SensorLog). Sensors: accelerometer only. Phone: right trouser pocket.
+- Raw file: Sensor Logger's **Accelerometer Uncalibrated** export (columns `time` [ns timestamp], `seconds_elapsed`, `z`, `y`, `x`; values in **g**, gravity included), committed unchanged as `data/sensor_raw.csv`. The page converts with 9.80665 m/s² per g. The *Accelerometer* export (gravity removed, m/s²) was not used, because the handout's method assumes gravity is included.
+- Recording: 31,658 samples, 317.5 s, recorded 14 Nov 2026.
+- Cleaning: keep 4.0–312.0 s (phone into/out of the pocket at the start and end); values beyond ±19.6 m/s² kept (no clipping; peak axis 4.9 g).
 - Recorded at **100 Hz** instead of the handout's 50 Hz (allowed: "or as close as your device allows"). Notable events: none.
 - Plot 3: cadence via Welch PSD.
 
 ## Open items (to confirm before or while building)
-- [ ] **SensorLog column names and units.** SensorLog may export acceleration in **g** rather than m/s², and use its own column and time names. Verify against the first real export before writing the column mapping and deciding whether to multiply by 9.81.
 - [ ] Peer-reviewed paper (Step 5.1) and commercial product (Step 5.2) to use.
 
 ## Contribution log
@@ -30,3 +32,4 @@ Updated by Claude after every completed step. It records what was done and by wh
 |---|---|---|---|---|
 | 1 | 2026-11-14 | Setup | Created SPEC.md, STYLE.md, CONTEXT.md and the WRITTEN_ANSWERS.md template from the lab handout and the student's decisions | Claude (decisions: student) |
 | 2 | 2026-11-14 | Step 1 | Built the page shell (MVVM: answers model, lab ViewModel, Step 1 view) with placeholders for Steps 2–5; Step 1 shows the answers from WRITTEN_ANSWERS.md; added marked.js; filled Step 1 answers; updated SPEC/CONTEXT to 100 Hz | Claude (session facts and approvals: student) |
+| 3 | 2026-11-14 | Step 2 | Inspected both Sensor Logger exports; committed AccelerometerUncalibrated as data/sensor_raw.csv (byte-identical). Built Step 2: CSV loading (Papa Parse), pandas-like frame helpers (shape, dtypes, head, describe, quantile, std), column mapping and g→m/s², acc_mag, artefact checks, trimming, Kept N/M, sensor_clean.csv download, effective sampling rate, CSV upload. Answers parser supports sub-answers (2.2). Results checked against pandas (identical). App name corrected to Sensor Logger | Claude (file choice, g factor and cleaning decisions: student) |

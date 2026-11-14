@@ -35,10 +35,10 @@ Course ILOs addressed:
 | Item | Value |
 |---|---|
 | Sport | Jogging on a treadmill (indoor) |
-| Sensor app | SensorLog |
+| Sensor app | Sensor Logger. Export used: **Accelerometer Uncalibrated** (values in g, gravity included) |
 | Sensors | Accelerometer only (ax, ay, az) |
 | Phone position | Right trouser pocket |
-| Sampling rate | 100 Hz, as reported by SensorLog (the handout asks for 50 Hz "or as close as your device allows") |
+| Sampling rate | 100 Hz, as reported by Sensor Logger (effective rate 99.7 Hz) (the handout asks for 50 Hz "or as close as your device allows") |
 | Minimum duration | 5 minutes |
 | Notable events | None |
 
@@ -49,7 +49,7 @@ Course ILOs addressed:
 
 ### Step 2 — Loading and cleaning
 - 2.1 Load the CSV. Show the equivalents of `df.shape`, `df.dtypes`, `df.head(10)` and `df.describe()`.
-- Map/rename the SensorLog columns to `time`, `ax`, `ay`, `az` (see CONTEXT.md for open questions on units).
+- Map the Sensor Logger columns to the handout's names in code: `time = seconds_elapsed` (s since Record), `ax, ay, az = x, y, z × 9.80665` (g → m/s²). The raw file is never modified.
 - 2.2 Compute `acc_mag = sqrt(ax² + ay² + az²)`.
 - 2.3 Check for and report:
   - missing values (`isnull().sum()`)
@@ -57,6 +57,7 @@ Course ILOs addressed:
   - sensor saturation (beyond the sensor's physical range, e.g. ±19.6 m/s² for a 2 g sensor)
   - noise at the start and end of the recording
 - Drop or interpolate problem rows. Report `Kept N/M rows after cleaning`.
+- Cleaning decisions (student): drop missing rows and out-of-order timestamps; **report but keep** values beyond ±19.6 m/s² (real foot strikes, no clipping); **trim start/end noise** by keeping 4.0 s – 312.0 s.
 - Make the cleaned dataset downloadable as `sensor_clean.csv`.
 - A prose section justifying each cleaning decision.
 
@@ -104,5 +105,5 @@ All plots are generated in code. Each has a title and axis labels, and can be ex
 | Step 5: Reflection | A 150–250-word synthesis paragraph |
 
 ## 7. Deliverables
-1. `sensor_raw.csv`: the unmodified SensorLog export, submitted manually by the student. A copy is committed to the repo so the page can auto-load it.
+1. `sensor_raw.csv`: the unmodified Sensor Logger *Accelerometer Uncalibrated* export, submitted manually by the student. A copy is committed to the repo so the page can auto-load it.
 2. The web page on GitHub Pages: the report.
