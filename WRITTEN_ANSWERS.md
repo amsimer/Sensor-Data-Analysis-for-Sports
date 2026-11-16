@@ -26,7 +26,7 @@ Answer: 100 Hz.
 
 **1.4 Notable events** during the session (sprint, fall, break, equipment change, speed changes on the treadmill), with approximate timestamps:
 
-Answer: None.
+Answer: I grabbed my phone and checked if the recording was still going at around a minute.
 
 
 ---
@@ -35,26 +35,29 @@ Answer: None.
 
 **2.1 Columns present:** which columns did the SensorLog export contain? Did you rename any? (Note the units: m/s² or g.)
 
-Answer:
-
+Answer: The Sensor Logger contained the following columns:
+- time: nanoseconds since epoch
+- seconds_elapsed: seconds since recording started
+- z, x and y: m/s^-2
+The names were only changed in the code after loading the file: seconds_elapsed -> time, x y z -> ax ay az.
 
 **2.2 Cleaning decisions:** explain *each* cleaning decision (assessed: at least one cleaning step must be justified in prose). Cover what you checked and what you did about it:
 
 - Missing rows:
 
-  Answer:
+  Answer: There were none
 
-- Timestamps out of order:
+- Timestamps out of order: 
 
-  Answer:
+  Answer: There were none
 
 - Sensor saturation (values beyond the sensor's physical range):
 
-  Answer:
+  Answer: Values beyond +_ 19.6 m/s^2 were reported but kept in the data
 
 - Noise at the start and end of the recording (pressing Record/Stop, putting the phone in your pocket):
 
-  Answer:
+  Answer: The data was kept from 4s to 312 s.
 
 - Any other step:
 
@@ -67,7 +70,7 @@ Answer:
 
 **3.1 Is 50 Hz sufficient for your activity?** Comment on it using your effective sampling rate and Nyquist frequency. (Human gait cycles occur at ~1–3 Hz; jump landings contain frequencies up to ~15 Hz.)
 
-Answer:
+Answer: Sensor logger used 100 Hz but it as sufficient because my jogging cycle was much slower, so the data was collected with high resolution.
 
 
 **3.2 Anomaly clusters** *(assessed: each cluster must be explained physically, not just labelled "outlier")*
@@ -76,41 +79,41 @@ For **each cluster** of outliers, answer the three questions. Copy the block if 
 ### Cluster 1
 1. When did it occur (timestamp)?
 
-   Answer:
+   Answer: 77.82 - 100.64
 
 2. What physical event likely caused it?
 
-   Answer:
+   Answer: At this moment I checked my phone to see if the recording was still going.
 
 3. Should it be excluded from further analysis, or is it meaningful signal?
 
-   Answer:
+   Answer: It should be excluded because it doesn't represent anything related to the motion that's being analysed.
 
 ### Cluster 2
 1. When did it occur (timestamp)?
 
-   Answer:
+   Answer: 105.72 - 117.43
 
 2. What physical event likely caused it?
 
-   Answer:
+   Answer: My phone shifted its position inside my pocket.
 
 3. Should it be excluded from further analysis, or is it meaningful signal?
 
-   Answer:
+   Answer: It shouldn't be analyzed but it should be noted because it changed the output after this point.
 
 ### Cluster 3
 1. When did it occur (timestamp)?
 
-   Answer:
+   Answer: 262.63 - 310.28 
 
 2. What physical event likely caused it?
 
-   Answer:
+   Answer: Not a single physicaal event but was the result of the phone changing position inside the pocket
 
 3. Should it be excluded from further analysis, or is it meaningful signal?
 
-   Answer:
+   Answer: It is a meaningful signal but it's important to understand the context of it being related to a phone movement instead of a change in the motion 
 
 
 ---
