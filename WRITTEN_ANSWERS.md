@@ -60,7 +60,7 @@ The names were only changed in the code after loading the file: seconds_elapsed 
 
 - Any other step:
 
-  Answer:
+  Answer: No
 
 ---
 
