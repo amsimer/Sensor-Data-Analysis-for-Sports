@@ -207,6 +207,6 @@ One paragraph that brings 5.1 and 5.2 together, addressing:
 - What would a sports scientist want that is not available in today's consumer apps?
 
 Answer:
-
+Consumer technology oftern lags behing research because they normally have different goals, consumer product focus on simple and user friendly data, as well as making products more comfortable and accurate enough for the user to get valuable data and also like the functionality/aesthetics of the product. Research normally goes the other way around, it tries to push the limits of how much information and how accurate can technology be, without thinking too much of user interaction yet. So the normal workflow is that research evaluates and validates a new technology's functionality, so companies can later simplify it at make it as user friendly as possible. My sensor data could fill in information gaps for athletes who want/need more context in the data their devices are giving them, for example the distribution of their motion. I think an accelerometer based app that animates an athlete's full body motion through estimation based on physiological description and the data collected could be an intresting approach. This could be very intresting for athletes that want to see a more detailed bodily analysis without the need to use motion capture or video analysis, it could just be a sensor in each limb for example. 
 
 Word count:
