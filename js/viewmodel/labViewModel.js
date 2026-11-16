@@ -1,7 +1,7 @@
 // ViewModel: holds the page state and runs the Model in lab-step order.
 // Views subscribe and re-render when the state changes. No DOM access here.
 
-import { loadAnswers } from '../model/answers.js';
+import { loadAnswers, wordCount } from '../model/answers.js';
 import { readCsv, toHandoutColumns, G } from '../model/csv.js';
 import { addAccMag, clean, samplingRate, CLEANING } from '../model/cleaning.js';
 import { shape, dtypes, head, describe, toCsv, mean } from '../model/frame.js';
@@ -154,6 +154,13 @@ export class LabViewModel {
   /** df_clean.to_csv('sensor_clean.csv', index=False) */
   cleanCsv() {
     return this.cleanFrame ? toCsv(this.cleanFrame) : '';
+  }
+
+  /** Word count of an answer and whether it is inside [min, max]. */
+  wordCountFor(id, min, max) {
+    const item = this.state.answers.get(id);
+    const words = item ? wordCount(item.answer) : 0;
+    return { words, min, max, ok: words >= min && words <= max };
   }
 
   /** Answers for the given ids, ready to display: [{ id, question, answer, parts, isEmpty, missing }]. */

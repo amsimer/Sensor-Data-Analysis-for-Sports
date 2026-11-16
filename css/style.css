@@ -160,3 +160,7 @@ h4 { font-size: 0.95rem; margin: 1.4em 0 0.4em; }
 /* Step 4: plots */
 .plot { width: 100%; min-height: 320px; margin: 8px 0 4px; }
 .plot-actions { margin: 0 0 16px; }
+
+/* Step 5: word count */
+.word-count { margin: -12px 0 20px; font-size: 0.85rem; color: var(--muted); }
+.word-count--bad { color: var(--error); font-weight: 600; }

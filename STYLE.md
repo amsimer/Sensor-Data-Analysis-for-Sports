@@ -41,7 +41,7 @@ The final names are set when the code is built; any change will be recorded in t
 
 ## 4a. Written answers
 - `WRITTEN_ANSWERS.md` is the single source for all prose. The page fetches it and shows each answer in its step's section.
-- Each answer is found by its **bold question id** (`**1.1 …**`, `**Q1.** …`) and the text after `Answer:`. **Keep the question lines and the `Answer:` labels unchanged.** Write freely in the answer space.
+- Each answer is found by its **bold question id** (`**1.1 …**`, `**5.2.3 …**`, `**Q1.** …`, `**C1.2 …**`) and the text after `Answer:`. **Keep the question lines and the `Answer:` labels unchanged.** Write freely in the answer space.
 - An answer ends at the next question, heading or `---` line. Empty answers show as "To be filled in" on the page.
 - Everything else is plain JS (no build step, no framework), so GitHub Pages can serve the repo as is.
 

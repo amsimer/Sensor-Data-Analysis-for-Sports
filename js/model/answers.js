@@ -4,7 +4,7 @@
 // A question may have sub-items ("- Missing rows:" followed by "Answer:"),
 // which become `parts`.
 
-const QUESTION_LINE = /^\*\*(\d+\.\d+|Q\d+|C\d+\.\d+)\b/;   // **1.1 ...  /  **Q1.** ...  /  **C1.2 ...
+const QUESTION_LINE = /^\*\*(\d+\.\d+(?:\.\d+)?|Q\d+|C\d+\.\d+)\b/;   // **1.1 / **5.2.3 / **Q1.** / **C1.2
 const PART_LINE = /^-\s+(.+?):\s*$/;                 // - Missing rows:
 const ANSWER_LINE = /^\s*Answer:\s*(.*)$/;
 const SECTION_BREAK = /^(#{1,6}\s|---\s*$)/;          // headings and rules end an answer
@@ -76,6 +76,15 @@ export function parseAnswers(markdown) {
   }
   finish();
   return answers;
+}
+
+/** Number of words in an answer (markdown symbols and URLs are not words). */
+export function wordCount(markdown) {
+  return markdown
+    .replace(/https?:\/\/\S+/g, ' ')
+    .replace(/[*_`#>]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 }
 
 /** Fetch WRITTEN_ANSWERS.md (no-cache, so edits show on reload) and parse it. */

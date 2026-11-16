@@ -40,7 +40,7 @@ Course ILOs addressed:
 | Phone position | Right trouser pocket |
 | Sampling rate | 100 Hz, as reported by Sensor Logger (effective rate 99.7 Hz) (the handout asks for 50 Hz "or as close as your device allows") |
 | Minimum duration | 5 minutes |
-| Notable events | None |
+| Notable events | Phone taken out to check the recording at about 1 min (student's account) |
 
 ## 4. Functional requirements (one page section per step)
 
