@@ -124,20 +124,20 @@ Each interpretation should answer: **What does this plot show? What is surprisin
 
 **4.1 Plot 1: Time series** (acceleration magnitude over the session, with the mean and anomalies marked)
 
-Answer:
-
+Answer: 
+The signal has a very steady pace, it's visible that it goes up and down at an appropiate frecuency for jogging in a threadmill at a constant speed. Every spike in the plot is a foot strike, which due to the steady pace and lack of events, the spikes keep going at a close frecuency. There are also bigger peaks comming after around 100 s, which are attributed to the phone chaning position in my pocket. Since this data doesn't filter out gravity, the mean of 10.60 m/s^2 actually shows a load of 0.79 m/s^2.
 
 **4.2 Plot 2: Distribution** (histogram of acceleration magnitude and box plots per axis)
 If you recorded distinct phases (warm-up, main effort, cool-down), also compare them.
 
 Answer:
-
+The histogram shows a skewed to the right distribution, because values go up and down gradually but they are more concentrated on the left. This shows that the median is around the gravity acceleration because it's smaller than the mean because of the distribution type. The box plots show that ax and ay have the largest amount of spread and outliers, while z has much less change. This indicates that x and y make a plane paralel to me, therefore being more affected by jogging statically in a straight line, and z goes out perpendicularly.
 
 **4.3 Plot 3: Cadence via PSD (Welch)**
 Include what the dominant frequency peak represents, and the cadence in steps/min.
 
 Answer:
-
+The domimant frecuency is 2.73 Hz, which is 163.6 steps/min. This is an expected result because it makes sense for a light jog to have around 2.5 steps per second. There's also a smaller peak at 1.36 Hz, half of the highest one. This peak is attributed to the gait of one single leg, since the phone was placed in the right pocket. The narrow shape of the peak is also consistent with the motion's behaviour since the treadmill's pace never changed in the recording. The low frecuency of the motion indicates that 100 Hz is more than enough for this application.
 
 ---
 
@@ -149,50 +149,56 @@ Use a paper that uses the **same sensor type and sport** (accelerometer + runnin
 **Citation (APA format):**
 
 Answer:
-
+Zdravevski, E., Risteska Stojkoska, B., Standl, M., & Schulz, H. (2017). Automatic machine-learning based identification of jogging periods from accelerometer measurements of adolescents under field conditions. PLOS ONE, 12(9), e0184216. https://doi.org/10.1371/journal.pone.0184216 
 
 **Q1.** What variable did the researchers measure, and how does it compare to the feature you computed?
 
 Answer:
-
+The researchers measured activity counts per second, which is a unitless measurement of how much movement is happening per second in 3 axis as well. Their analysis is similar to mine in that they used vector magnitude for the total acceleration. The ActiGraph device was able to count steps per second as well but it was not mentioned in the article.
 
 **Q2.** What sampling rate did they use, and how does it relate to your own? Was your 50 Hz sufficient for the same purpose?
 
 Answer:
-
+Their sampling rate was 30 Hz but they stored at 1 Hz, taking activity data for each second. Yes 50 Hz would be sufficient for them, it would have more resolution than their frecuency. 
 
 **Q3.** What did they conclude, and does your data support or contradict that finding (even informally)?
 
 Answer:
-
+They concluded that their machine learning model could classify movements (jogging and walking) with a 99% accuracy. The precision of the cadence peak in my findings shows that classifying movement activities with an accelerometer is viable, because dominant frecuencies could be isolated for different time periods, which supports their results.
 
 ### 5.2 Commercial product *(assessed)*
 A commercial device or app that measures the same activity (e.g. Garmin Forerunner, Whoop, Apple Watch, Polar Vantage, Catapult PlayerTek).
 
 **Product name:**
 
-Answer:
+Answer: Garmin Forerunner 265
 
 
 **What sensors does it use?** (accelerometer, gyro, heart rate, GPS?)
 
 Answer:
-
+- Accelerometer
+- Garmin Elevate heart rate monitor
+- Pulse oxymeter
+- Barometer
+- Thermometer
+- Light sensor
 
 **What metrics does it report to the user?**
 
 Answer:
-
+Pace, speed, distance, time, heart rate, cadence, stride length, vertical oscilation, ground contact time, training load, VO2 estimate, recovery time, training readiness, sleep, HRV, stress, Pulse Ox, etc.
 
 **What metrics does it expose to coaches or researchers via an API or export?**
 
 Answer:
-
+- Manual export: Activities can be downloaded as FIT files
+- APIs: Activity and health data in JSON files. The starter tier only pushes new data while the enterprise tier adds historical data and unlimited users.
 
 **What gap exists between what the device measures and what the published research says matters?** *(the core of this step)*
 
 Answer:
-
+This device has very complete data, and informs the athlete about a lot of information. A gap it has is that it doesn't show raw accelereometer data, so it's difficult o validate how they filter it and interpret it. They also don't show percentile values (distribution, median, Q1, Q3, etc.), only average and real time values, which can be a limitation in describing a movement's behaviour if the full context isn't known. Some reviews state that wrist sensor values aren't as precise as they are in other body parts like the legs or hips, which is also a gap between the product and what could be considered gold standard.
 
 ### 5.3 Reflection *(assessed: 150–250 words)*
 One paragraph that brings 5.1 and 5.2 together, addressing:
