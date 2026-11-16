@@ -11,7 +11,7 @@ These texts will be placed in the matching sections of the web page.
 
 **1.1 Sport and session:** what did you do, where, and for how long? (e.g. "8 km outdoor run, Djurgårdsparken, 42 min")
 
-Answer: Jogging on a treadmill at the KTH ACTIVE space.
+Answer: Jogging on a treadmill at the KTH ACTIVE space for 5 minutes.
 
 
 **1.2 Phone position:** pocket, armband or other? Which body part? (Left or right, front or back pocket?)
