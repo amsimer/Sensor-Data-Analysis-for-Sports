@@ -11,7 +11,7 @@ These texts will be placed in the matching sections of the web page.
 
 **1.1 Sport and session:** what did you do, where, and for how long? (e.g. "8 km outdoor run, Djurgårdsparken, 42 min")
 
-Answer: Jogging on a treadmill.
+Answer: Jogging on a treadmill at the KTH ACTIVE space.
 
 
 **1.2 Phone position:** pocket, armband or other? Which body part? (Left or right, front or back pocket?)
@@ -190,7 +190,7 @@ Answer: The histogram shows a right-skewed distribution, because values go up an
 **4.3 Plot 3: Cadence via PSD (Welch)**
 Include what the dominant frequency peak represents, and the cadence in steps/min.
 
-Answer: The dominant frequency is 2.73 Hz, which is 163.6 steps/min. This is an expected result because it makes sense for a light jog to have around 2.5 steps per second. There's also a smaller peak at 1.36 Hz, half of the highest one. This peak is attributed to the gait of one single leg, since the phone was placed in the right pocket. The narrow shape of the peak is also consistent with the motion's behaviour, since the treadmill's pace never changed in the recording. The low frequency of the motion indicates that 100 Hz is more than enough for this application.
+Answer: The dominant frequency is 2.73 Hz, which is 163.6 steps/min, which is an expected result because it makes sense for a light jog to have around 2.5 steps per second. There's also a smaller peak at 1.36 Hz, half of the highest one, which is attributed to the gait of one single leg, since the phone was placed in the right pocket. The narrow shape of the peak is also consistent with the motion's behaviour, since the treadmill's pace never changed in the recording. The low frequency of the motion indicates that 100 Hz is more than enough for this application.
 
 ---
 
