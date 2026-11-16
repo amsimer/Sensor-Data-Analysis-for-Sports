@@ -56,7 +56,7 @@ The names were only changed in the code after loading the file: seconds_elapsed 
 
 - Noise at the start and end of the recording (pressing Record/Stop, putting the phone in your pocket):
 
-  Answer: The data was kept from 4 s to 312 s.
+  Answer: The data was kept from 4 s to 312 s because I needed to remove the initial part where I started the recording and put the phone in my pocket and when I took it out to stop the recording.
 
 - Any other step:
 
@@ -82,11 +82,11 @@ Answer: 4.27 s – 43.40 s (138 outlier samples, peak acc_mag 36.26 m/s²).
 
 **C1.2 What physical event likely caused it?**
 
-Answer:
+Answer: There wasn't any physical event at these timestamps, so it was probably harder steps or small adjustments.
 
 **C1.3 Should it be excluded from further analysis, or is it meaningful signal?**
 
-Answer:
+Answer: It isn't meaningful signal.
 
 ### Cluster 2
 
@@ -96,11 +96,11 @@ Answer: 52.92 s – 70.63 s (50 outlier samples, peak acc_mag 37.38 m/s²).
 
 **C2.2 What physical event likely caused it?**
 
-Answer:
+Answer: There wasn't any physical event at these timestamps, so it was probably harder steps or small adjustments.
 
 **C2.3 Should it be excluded from further analysis, or is it meaningful signal?**
 
-Answer:
+Answer: It isn't meaningful signal.
 
 ### Cluster 3
 
@@ -152,11 +152,11 @@ Answer: 125.39 s – 256.51 s (490 outlier samples, peak acc_mag 52.72 m/s²).
 
 **C6.2 What physical event likely caused it?**
 
-Answer:
+Answer: There wasn't any physical event at these timestamps, so it was probably harder steps or small adjustments.
 
 **C6.3 Should it be excluded from further analysis, or is it meaningful signal?**
 
-Answer:
+Answer: It isn't meaningful signal.
 
 ### Cluster 7
 
