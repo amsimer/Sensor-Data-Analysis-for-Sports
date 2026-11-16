@@ -57,7 +57,7 @@ The names were only changed in the code after loading the file: seconds_elapsed 
 
 - Noise at the start and end of the recording (pressing Record/Stop, putting the phone in your pocket):
 
-  Answer: The data was kept from 4s to 312 s.
+  Answer: The data was kept from 4s to 312 s because I needed to remove the initial part where I started the recording and put the phone in my pocket and when I took it out to stop the recording.
 
 - Any other step:
 
